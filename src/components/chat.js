@@ -37,7 +37,7 @@ const Chat = ({ className, data, onSubmit }) => {
   }, [data])
   
   return (
-    <div className={`${styles.chat} ${isMinimized ? styles.min : styles.max}`}>
+    <div className={`${styles.chat} ${isMinimized ? styles.min : styles.max} ${className}`}>
       <button type="button" onClick={toggleChat}>{isMinimized ? 'Maximize' : 'Minimize'}</button>
       <div ref={chatBoxRef}>
         {messages.map((message, index) => <div key={index}>{message}</div>)}
