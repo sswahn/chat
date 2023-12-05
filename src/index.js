@@ -1,2 +1,2 @@
-import Chat from './core/Chat'
+import Chat from './components/Chat.js'
 export default Chat
