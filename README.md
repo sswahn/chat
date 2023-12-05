@@ -36,3 +36,6 @@ const YourApp = () => {
 
 export default YourApp
 ```
+
+## License
+Chat is [MIT Licensed](https://github.com/sswahn/chat/blob/main/LICENSE)
