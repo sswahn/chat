@@ -8,7 +8,7 @@ const Chat = ({ className, data, onSubmit }) => {
   const chatBoxRef = useRef(null)
 
   const toggleChat = () => {
-    setIsMinimized((prev) => !prev)
+    setIsMinimized(prevState => !prevState)
   }
 
   const handleOnChange = ({ target }) => {
@@ -18,7 +18,7 @@ const Chat = ({ className, data, onSubmit }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault()
     if (inputValue.trim() !== '') {
-      setMessages((prevMessages) => [...prevMessages, inputValue])
+      setMessages(prevMessages => [...prevMessages, inputValue])
       onSubmit && onSubmit(inputValue)
       setInputValue('')
     }
