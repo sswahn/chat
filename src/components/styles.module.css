@@ -9,7 +9,7 @@
   right: 0;
 }
 
-.chat:first-child {
+.chat > button {
   cursor: pointer;
   background-color: #3498db;
   color: #fff;
