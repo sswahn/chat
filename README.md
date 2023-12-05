@@ -19,7 +19,8 @@ npm i @sswahn/chat
 
 ### Props
 - **className**: Additional CSS classes for styling customization.
-- **data**: Array of messages to prepopulate the chat.
+- **username**: Username of local user.
+- **data**: Array of message objects for prepopulating the chat.
 - **onSubmit**: Callback function triggered when a new message is submitted.
 
 ```javascript
