@@ -18,7 +18,7 @@
   border-radius: 5px;
 }
 
-.messages {
+.chat > div {
   flex: 1;
   overflow-y: scroll;
   padding: 10px;
