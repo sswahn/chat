@@ -41,11 +41,11 @@ const Chat = ({ className, data, onSubmit }) => {
   return (
     <div className={`${styles.chat} ${isMinimized ? styles.min : styles.max} ${className}`}>
       <button type="button" onClick={toggleChat}>{isMinimized ? 'Maximize' : 'Minimize'}</button>
-      <div ref={chatBoxRef}>
+      <div ref={chatBoxRef} role="log" aria-label="chat history">
         {messages.map((message, index) => <div key={index}>{message}</div>)}
       </div>
       <form onSubmit={handleOnSubmit}>
-        <input type="text" placeholder="Type your message..." value={inputValue} onChange={handleOnChange} />
+        <input type="text" placeholder="Type your message..." value={inputValue} onChange={handleOnChange} aria-label="chat input" />
         <button type="submit">Send</button>
       </form>
     </div>
