@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-const Chat = () => {
+const Chat = ({ className, onSubmit }) => {
   const [isMinimized, setIsMinimized] = useState(true)
   const [messages, setMessages] = useState([])
   const [inputValue, setInputValue] = useState('')
