@@ -35,6 +35,8 @@ const Chat = ({ className, data, onSubmit }) => {
       setMessages(data)
     }
   }, [data])
+
+  // need to handle alternating sides for each user's message
   
   return (
     <div className={`${styles.chat} ${isMinimized ? styles.min : styles.max} ${className}`}>
