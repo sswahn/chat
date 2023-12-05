@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './styles.module.css'
 
-const Chat = ({ className, data, onSubmit }) => {
+const Chat = ({ className, username, data, onSubmit }) => {
   const [isMinimized, setIsMinimized] = useState(true)
   const [messages, setMessages] = useState([])
   const [inputValue, setInputValue] = useState('')
@@ -18,7 +18,7 @@ const Chat = ({ className, data, onSubmit }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault()
     if (inputValue.trim() !== '') {
-      setMessages(prevMessages => [...prevMessages, inputValue])
+      setMessages(prevMessages => [...prevMessages, {text: inputValue, user: username}])
       onSubmit && onSubmit(inputValue)
       setInputValue('')
     }
@@ -35,14 +35,14 @@ const Chat = ({ className, data, onSubmit }) => {
       setMessages(data)
     }
   }, [data])
-
-  // need to handle alternating sides for each user's message
   
   return (
     <div className={`${styles.chat} ${isMinimized ? styles.min : styles.max} ${className}`}>
       <button type="button" onClick={toggleChat}>{isMinimized ? 'Maximize' : 'Minimize'}</button>
       <div ref={chatBoxRef} role="log" aria-label="chat history">
-        {messages.map((message, index) => <div key={index}>{message}</div>)}
+        {messages.map((message, index) => (
+          <div key={index} style={{textAlign: message.user === username ? 'right' : 'left'}}>{message.text}</div>
+        ))}
       </div>
       <form onSubmit={handleOnSubmit}>
         <input type="text" placeholder="Type your message..." value={inputValue} onChange={handleOnChange} aria-label="chat input" />
