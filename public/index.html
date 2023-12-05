@@ -25,8 +25,9 @@
     }
 
     #chat-container {
-      height: 200px;
-      overflow-y: scroll;
+      min-height: 200px;
+      overflow-y: auto;
+      margin-bottom: 35px;
       padding: 10px;
       box-sizing: border-box;
     }
@@ -70,9 +71,9 @@
   <div id="chat-wrapper">
     <button id="toggle-button" onclick="toggleChat()">Maximize</button>
     <div id="chat-container"></div>
-    <form id="input-container">
+    <form id="input-container" onSubmit="sendMessage(event)">
       <input type="text" id="input-box" placeholder="Type your message...">
-      <button id="send-button" onclick="sendMessage()">Send</button>
+      <button id="send-button" type="submit">Send</button>
     </form>
   </div>
 
@@ -99,7 +100,8 @@
       isMinimized = !isMinimized;
     }
 
-    function sendMessage() {
+    function sendMessage(event) {
+      event.preventDefault()
       var inputBox = document.getElementById('input-box');
       var message = inputBox.value;
 
@@ -116,6 +118,11 @@
         chatContainer.scrollTop = chatContainer.scrollHeight;
       }
     }
+
+    // Optionally, you can simulate receiving a message after a delay
+    // setTimeout(function() {
+    //   sendMessage("Hello, how can I help you?");
+    // }, 1000);
   </script>
 </body>
 </html>
