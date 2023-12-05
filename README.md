@@ -17,6 +17,11 @@ npm i @sswahn/chat
 
 ## Usage
 
+### Props
+- **className**: Additional CSS classes for styling customization.
+- **data**: Array of messages to prepopulate the chat.
+- **onSubmit**: Callback function triggered when a new message is submitted.
+
 ```javascript
 import Chat from '@sswahn/chat'
 
@@ -37,12 +42,6 @@ const YourApp = () => {
 
 export default YourApp
 ```
-
-## Props
-- **className**: Additional CSS classes for styling customization.
-- **data**: Array of messages to prepopulate the chat.
-- **onSubmit**: Callback function triggered when a new message is submitted.
-
 
 ## License
 Chat is [MIT Licensed](https://github.com/sswahn/chat/blob/main/LICENSE)
