@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      position: relative;
+    }
+
+    #chat-wrapper {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    #chat-container {
+      height: 200px;
+      overflow-y: scroll;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    #input-container {
+      bottom: 0;
+      display: flex;
+      position: fixed;
+      padding: 10px;
+      box-sizing: border-box;
+      background-color: #f0f0f0;
+      width: 100%;
+    }
+
+    #input-box {
+      display: block;
+      box-sizing: border-box;
+      margin-right: 10px;
+      max-width: 100%;
+      width: 225px;
+      transition: all 0.3s ease;
+    }
+
+    #send-button {
+      cursor: pointer;
+    }
+
+    #toggle-button {
+      cursor: pointer;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+  </style>
+  <title>Simple Chat</title>
+</head>
+<body>
+  <div id="chat-wrapper">
+    <button id="toggle-button" onclick="toggleChat()">Maximize</button>
+    <div id="chat-container"></div>
+    <form id="input-container">
+      <input type="text" id="input-box" placeholder="Type your message...">
+      <button id="send-button" onclick="sendMessage()">Send</button>
+    </form>
+  </div>
+
+  <script>
+    var isMinimized = true;
+
+    function toggleChat() {
+      var chatWrapper = document.getElementById('chat-wrapper');
+      var toggleButton = document.getElementById('toggle-button');
+      var input = document.getElementById('input-box')
+
+      if (isMinimized) {
+        input.style.width = '100%'
+        chatWrapper.style.maxWidth = '100vw';
+        chatWrapper.style.height = '100vh';
+        toggleButton.textContent = 'Minimize';
+      } else {
+        input.style.width = '225px'
+        chatWrapper.style.maxWidth = '300px';
+        chatWrapper.style.height = '200px';
+        toggleButton.textContent = 'Maximize';
+      }
+
+      isMinimized = !isMinimized;
+    }
+
+    function sendMessage() {
+      var inputBox = document.getElementById('input-box');
+      var message = inputBox.value;
+
+      if (message.trim() !== '') {
+        var chatContainer = document.getElementById('chat-container');
+        var messageElement = document.createElement('div');
+        messageElement.textContent = message;
+        chatContainer.appendChild(messageElement);
+
+        // Clear the input box after sending the message
+        inputBox.value = '';
+
+        // Scroll to the bottom to show the latest message
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }
+    }
+
+    // Optionally, you can simulate receiving a message after a delay
+    // setTimeout(function() {
+    //   sendMessage("Hello, how can I help you?");
+    // }, 1000);
+  </script>
+</body>
+</html>
