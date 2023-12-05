@@ -39,9 +39,9 @@ export default YourApp
 ```
 
 ## Props
-- className: Additional CSS classes for styling customization.
-- data: Array of messages to prepopulate the chat.
-- onSubmit: Callback function triggered when a new message is submitted.
+- **className**: Additional CSS classes for styling customization.
+- **data**: Array of messages to prepopulate the chat.
+- **onSubmit**: Callback function triggered when a new message is submitted.
 
 
 ## License
