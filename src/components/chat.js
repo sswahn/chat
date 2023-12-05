@@ -25,13 +25,11 @@ const Chat = ({ className, data, onSubmit }) => {
   }
 
   useEffect(() => {
-    // Scroll to the bottom when messages change
     if (chatBoxRef.current) {
       chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight
     }
   }, [messages])
 
-  // add data to state
   useEffect(() => {
     if(data?.length) {
       setMessages(data)
