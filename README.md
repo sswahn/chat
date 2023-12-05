@@ -34,6 +34,7 @@ const YourApp = () => {
   return (
       <Chat
         className="custom-chat"
+        username="sswahn"
         data={['Hello', 'How are you?']}
         onSubmit={handleSendMessage}
       />
