@@ -26,7 +26,12 @@ npm i @sswahn/chat
 import Chat from '@sswahn/chat'
 
 const YourApp = () => {
-  const handleSendMessage = (message) => {
+  const [messages, setMessages] = useState([
+    {text: 'Hello', user: 'sswahn'},
+    {text: 'How are you?', user: 'steve'}
+  ])
+
+  const handleSubmitMessage = (message) => {
     // Handle sending the message (e.g., send to server).
     console.log(`Sending message: ${message}`)
   }
@@ -35,8 +40,8 @@ const YourApp = () => {
       <Chat
         className="custom-chat"
         username="sswahn"
-        data={['Hello', 'How are you?']}
-        onSubmit={handleSendMessage}
+        data={messages}
+        onSubmit={handleSubmitMessage}
       />
   )
 }
