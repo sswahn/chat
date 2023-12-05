@@ -36,7 +36,7 @@ const Chat = ({ className, data, onSubmit }) => {
   return (
     <div className={styles.chat} style={{ width: isMinimized ? '300px' : '100%', height: isMinimized ? '450px' : '100%' }}>
       <button type="button" onClick={toggleChat}>{isMinimized ? 'Maximize' : 'Minimize'}</button>
-      <div className={styles.messages} ref={chatBoxRef}>
+      <div ref={chatBoxRef}>
         {messages.map((message, index) => <div key={index}>{message}</div>)}
       </div>
       <form onSubmit={handleOnSubmit}>
