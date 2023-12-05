@@ -32,9 +32,14 @@ const Chat = ({ className, data, onSubmit }) => {
   }, [messages])
 
   // add data to state
+  useEffect(() => {
+    if(data?.length) {
+      setMessages(data)
+    }
+  }, [data])
   
   return (
-    <div className={styles.chat} style={{ width: isMinimized ? '300px' : '100%', height: isMinimized ? '450px' : '100%' }}>
+    <div className={`${styles.chat} ${isMinimized ? styles.min : styles.max}`}>
       <button type="button" onClick={toggleChat}>{isMinimized ? 'Maximize' : 'Minimize'}</button>
       <div ref={chatBoxRef}>
         {messages.map((message, index) => <div key={index}>{message}</div>)}
