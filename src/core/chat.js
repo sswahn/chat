@@ -10,10 +10,15 @@ const Chat = ({ className, data, onSubmit }) => {
     setIsMinimized((prev) => !prev)
   }
 
-  const sendMessage = (event) => {
+  const handleOnChange = ({ target }) => {
+    setInputValue(target.value)
+  }
+  
+  const handleOnSubmit = (event) => {
     event.preventDefault()
     if (inputValue.trim() !== '') {
       setMessages((prevMessages) => [...prevMessages, inputValue])
+      onSubmit && onSubmit(inputValue)
       setInputValue('')
     }
   }
@@ -25,6 +30,8 @@ const Chat = ({ className, data, onSubmit }) => {
     }
   }, [messages])
 
+  // add data to state
+  
   return (
     <div
       style={{
@@ -67,7 +74,7 @@ const Chat = ({ className, data, onSubmit }) => {
         ))}
       </div>
       <form
-        onSubmit={sendMessage}
+        onSubmit={handleOnSubmit}
         style={{
           display: 'flex',
           padding: '10px',
@@ -82,7 +89,7 @@ const Chat = ({ className, data, onSubmit }) => {
           type="text"
           placeholder="Type your message..."
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
+          onChange={handleOnChange}
           style={{
             boxSizing: 'border-box',
             marginRight: '10px',
