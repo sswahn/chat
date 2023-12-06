@@ -18,7 +18,7 @@ npm i @sswahn/chat
 ## Usage
 
 ### Props
-- **className**: Additional CSS classes for styling customization.
+- **className**: Override default CSS with custom class.
 - **username**: Username of local user.
 - **data**: Array of message objects for prepopulating the chat.
 - **onSubmit**: Callback function triggered when a new message is submitted.
@@ -28,8 +28,8 @@ import Chat from '@sswahn/chat'
 
 const YourApp = () => {
   const [messages, setMessages] = useState([
-    {text: 'Hello', user: 'sswahn'},
-    {text: 'How are you?', user: 'steve'}
+    {user: 'sswahn', text: 'Hello'},
+    {user: 'steve', text: 'How are you?'}
   ])
 
   const handleSubmitMessage = (message) => {
