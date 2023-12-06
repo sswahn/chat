@@ -41,7 +41,7 @@ const Chat = ({ className, username, data, onSubmit }) => {
       <button type="button" onClick={toggleChat}>{isMinimized ? 'Maximize' : 'Minimize'}</button>
       <div ref={chatBoxRef} role="log" aria-label="chat history">
         {messages.map((message, index) => (
-          <div key={index} style={{textAlign: message.user === username ? 'right' : 'left'}}>{message.text}</div>
+          <div key={index} className={message.user === username ? styles.local : styles.remote}>{message.text}</div>
         ))}
       </div>
       <form onSubmit={handleOnSubmit}>
