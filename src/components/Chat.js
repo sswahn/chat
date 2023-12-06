@@ -18,8 +18,8 @@ const Chat = ({ className, username, data, onSubmit }) => {
   const handleOnSubmit = (event) => {
     event.preventDefault()
     if (inputValue.trim() !== '') {
-      setMessages(prevMessages => [...prevMessages, {text: inputValue, user: username}])
-      onSubmit && onSubmit(inputValue)
+      setMessages(prevMessages => [...prevMessages, {user: username, text: inputValue}])
+      onSubmit && onSubmit({user: username, text: inputValue})
       setInputValue('')
     }
   }
