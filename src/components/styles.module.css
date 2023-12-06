@@ -17,6 +17,14 @@
   width: 100%;
 }
 
+.local {
+  text-align: right;
+}
+
+.remote {
+  text-align: left;
+}
+
 .chat > button {
   cursor: pointer;
   background-color: #3498db;
