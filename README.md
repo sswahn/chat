@@ -7,7 +7,7 @@ A simple and customizable chat component with minimize/maximize functionality.
 - **Minimize/Maximize:** Easily toggle between a minimized and maximized chat interface.
 - **Dynamic Updates:** Automatically scrolls to the bottom when new messages are added.
 - **Prepopulated Chat:** Optionally prepopulate the chat with initial messages.
-- **Custom Styling:** Use CSS Modules for styling and customize the appearance.
+- **Custom Styling:** Use a CSS class for style overriding to customize the appearance.
 
 ## Installation
 
