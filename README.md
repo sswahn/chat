@@ -30,7 +30,7 @@ import Chat from '@sswahn/chat'
 const YourApp = () => {
   const [messages, setMessages] = useState([
     {user: 'sswahn', text: 'Hello'},
-    {user: 'groot', text: 'How are you?'}
+    {user: 'groot', text: 'I am groot?'}
   ])
 
   const handleSubmitMessage = (message) => {
