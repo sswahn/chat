@@ -35,7 +35,7 @@ const YourApp = () => {
 
   const handleSubmitMessage = (message) => {
     // Handle sending the message (e.g., send to server).
-    console.log(`Sending message: ${message.text} from {message.user}`)
+    console.log(`Sending message: ${message.text} from ${message.user}`)
   }
 
   return (
