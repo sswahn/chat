@@ -24,6 +24,7 @@ npm i @sswahn/chat
 - **onSubmit**: Callback function triggered when a new message is submitted.
 
 ```javascript
+import { useState } from 'react'
 import Chat from '@sswahn/chat'
 
 const YourApp = () => {
