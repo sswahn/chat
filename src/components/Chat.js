@@ -11,11 +11,11 @@ const Chat = ({ className, username, data, onSubmit }) => {
     setIsMinimized(prevState => !prevState)
   }
 
-  const handleOnChange = ({ target }) => {
-    setInputValue(target.value)
+  const handleOnChange = event => {
+    setInputValue(event.target.value)
   }
   
-  const handleOnSubmit = (event) => {
+  const handleOnSubmit = event => {
     event.preventDefault()
     if (inputValue.trim() !== '') {
       setMessages(prevMessages => [...prevMessages, {user: username, text: inputValue}])
@@ -31,7 +31,7 @@ const Chat = ({ className, username, data, onSubmit }) => {
   }, [messages])
 
   useEffect(() => {
-    if(data?.length) {
+    if (data?.length) {
       setMessages(data)
     }
   }, [data])
