@@ -35,13 +35,14 @@ const YourApp = () => {
 
   const handleSubmitMessage = message => {
     // Handle the message (e.g., send to server).
-    console.log(`Sending message: ${message.text} from ${message.user}`)
+    console.log(`Sending message: ${message.text} from ${message.username}`)
   }
 
   return (
       <Chat
         className="custom-chat"
-        username="sswahn"
+        username={context.username}
+        contact={message.username}
         data={messages}
         onSubmit={handleSubmitMessage}
       />
