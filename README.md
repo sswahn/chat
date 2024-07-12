@@ -28,10 +28,12 @@ import { useState } from 'react'
 import Chat from '@sswahn/chat'
 
 const YourApp = () => {
-  const [messages, setMessages] = useState([
-    {user: 'sswahn', text: 'Hello'},
-    {user: 'steve', text: 'How are you?'}
-  ])
+  const [messages, setMessages] = useState([])
+
+  const loadMessages = () => {
+    // request data via context.contact
+    setMessages(data)
+  }
 
   const handleSubmitMessage = message => {
     // Handle the message (e.g., send to server).
